@@ -21,7 +21,7 @@ docker build -t="$USER/ssp:1.0" .
 ```
 运行:
 ```bash
-#可以修改连接ldpa、修改密码方式及页面展示图片
+#可以修改连接ladp、修改密码方式及页面展示图片
 docker run  -p 12000:80 -d -v ./assets/config.inc.php:/usr/share/self-service-password/conf/config.inc.php -v ./assets/images:/usr/share/self-service-password/images --name ldapssp $USER/ssp:1.0
 ```
 
