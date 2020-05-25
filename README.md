@@ -21,7 +21,6 @@ docker build -t="$USER/ssp:1.0" .
 ```
 运行:
 ```bash
-docker run --name sunssp -p 10001:80 -d $USER/ssp:1.0
 docker run  -p 12000:80 -d -v ./assets/config.inc.php:/usr/share/self-service-password/conf/config.inc.php -v ./assets/images:/usr/share/self-service-password/images --name ldapssp $USER/ssp:1.0
 ```
 
