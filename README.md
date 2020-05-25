@@ -12,7 +12,7 @@ LDAP ToolBox（LTB）自助服务密码实用程序的dockerfile，它是一个�
 ## 构建自己的镜像
 
 ```bash
-git clone https://github.com/wandouduoduo/docker-ssp.git
+git clone https://github.com/springHys/docker-ssp.git
 cd docker-ssp
 ```
 在本地编辑 `assets/config.inc.php` ，然后再构建镜像
@@ -22,6 +22,7 @@ docker build -t="$USER/ssp:1.0" .
 运行:
 ```bash
 docker run --name sunssp -p 10001:80 -d $USER/ssp:1.0
+docker run  -p 12000:80 -d -v ./assets/config.inc.php:/usr/share/self-service-password/conf/config.inc.php -v ./assets/images:/usr/share/self-service-password/images --name ldapssp $USER/ssp:1.0
 ```
 
 ## 问题
@@ -45,7 +46,7 @@ $use_questions=false;
 $use_sms= false;
 
 #配置 LDAP
-$ldap_url = "ldap://ldap.xxxxx.net";
+$ldap_url = "ldap://1.2.3.4:389";
 $ldap_starttls = false;
 $ldap_binddn = "cn=Manager,dc=ldap,dc=xxxxxx,dc=net";   
 $ldap_bindpw = "xxxxxxxxx";
