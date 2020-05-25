@@ -23,11 +23,11 @@
 # Configuration
 #==============================================================================
 # LDAP
-$ldap_url = "ldap://localhost";
+$ldap_url = "ldap://1.2.3.4:389";
 $ldap_starttls = false;
-$ldap_binddn = "cn=manager,dc=example,dc=com";
-$ldap_bindpw = "secret";
-$ldap_base = "dc=example,dc=com";
+$ldap_binddn = "cn=admin,dc=daocloud,dc=io";
+$ldap_bindpw = "2kVMshDsHwhy1QLA6eXw";
+$ldap_base = "dc=daocloud,dc=io";
 $ldap_login_attribute = "uid";
 $ldap_fullname_attribute = "cn";
 $ldap_filter = "(&(objectClass=person)($ldap_login_attribute={login}))";
@@ -64,7 +64,7 @@ $shadow_options['update_shadowLastChange'] = false;
 # clear (the default)
 # auto (will check the hash of current password)
 # This option is not used with ad_mode = true
-$hash = "clear";
+$hash = "SSHA";
 
 # Prefix to use for salt with CRYPT
 $hash_options['crypt_salt_prefix'] = "$6$";
@@ -72,17 +72,17 @@ $hash_options['crypt_salt_prefix'] = "$6$";
 # Local password policy
 # This is applied before directory password policy
 # Minimal length
-$pwd_min_length = 0;
+$pwd_min_length = 8;
 # Maximal length
-$pwd_max_length = 0;
+$pwd_max_length = 14;
 # Minimal lower characters
-$pwd_min_lower = 0;
+$pwd_min_lower = 1;
 # Minimal upper characters
-$pwd_min_upper = 0;
+$pwd_min_upper = 1;
 # Minimal digit characters
-$pwd_min_digit = 0;
+$pwd_min_digit = 1;
 # Minimal special characters
-$pwd_min_special = 0;
+$pwd_min_special = 1;
 # Definition of special characters
 $pwd_special_chars = "^a-zA-Z0-9";
 # Forbidden characters
@@ -117,7 +117,7 @@ $use_change = true;
 # Use questions/answers?
 # true (default)
 # false
-$use_questions = true;
+$use_questions = false;
 
 # Answer attribute should be hidden to users!
 $answer_objectClass = "extensibleObject";
@@ -142,19 +142,19 @@ $token_lifetime = "3600";
 # LDAP mail attribute
 $mail_attribute = "mail";
 # Who the email should come from
-$mail_from = "admin@example.com";
-$mail_from_name = "Self Service Password";
+$mail_from = "lcpsupport@petrochina.com.cn";
+$mail_from_name = "LCS Password";
 # Notify users anytime their password is changed
-$notify_on_change = false;
+$notify_on_change = true;
 # PHPMailer configuration (see https://github.com/PHPMailer/PHPMailer)
 $mail_sendmailpath = '/usr/sbin/sendmail';
 $mail_protocol = 'smtp';
 $mail_smtp_debug = 0;
 $mail_debug_format = 'html';
-$mail_smtp_host = 'localhost';
-$mail_smtp_auth = false;
-$mail_smtp_user = '';
-$mail_smtp_pass = '';
+$mail_smtp_host = '10.27.130.247';
+$mail_smtp_auth = true;
+$mail_smtp_user = 'lcpsupport@petrochina.com.cn';
+$mail_smtp_pass = 'lcp!@#QAZ2020';
 $mail_smtp_port = 25;
 $mail_smtp_timeout = 30;
 $mail_smtp_keepalive = false;
@@ -166,7 +166,7 @@ $mail_newline = PHP_EOL;
 
 ## SMS
 # Use sms
-$use_sms = true;
+$use_sms = false;
 # GSM number attribute
 $sms_attribute = "mobile";
 # Partially hide number
@@ -206,7 +206,7 @@ $background_image = "images/unsplash-space.jpeg";
 $debug = false;
 
 # Encryption, decryption keyphrase
-$keyphrase = "secret";
+$keyphrase = "secret123";
 
 # Where to log password resets - Make sure apache has write permission
 # By default, they are logged in Apache log
